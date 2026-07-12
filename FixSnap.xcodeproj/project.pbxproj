@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030FCEF5A555866D1FA32A9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BD698A94ABB10BC7BCC1F /* HomeView.swift */; };
+		1E1738D50CD6B06E093BBC40 /* FixSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7932DA5CC96791B64DC2EAA5 /* FixSnapApp.swift */; };
+		6EEB594A45382FF4F4417320 /* ResultPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B23D90E649F6DD1845B72 /* ResultPreview.swift */; };
 		7782ECD9566CBDFD0A662D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C35636B01557A5B26736C70 /* Assets.xcassets */; };
+		7F3D62F6CCDDAF279E293DA7 /* CaptureFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8D0B9BE3AB7C533B2E268 /* CaptureFlowView.swift */; };
+		81807C26EEC462BFADC1BF77 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE44838C23F853AC2AB964F /* Theme.swift */; };
+		8B069DDE7357B8F4728C0B4A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946FE708C4EF5C90EBE34B28 /* SampleData.swift */; };
 		9854997FDE826DC2A7EDF329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D00369A4F68CDC1E1F2D491 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14B8D0B9BE3AB7C533B2E268 /* CaptureFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFlowView.swift; sourceTree = "<group>"; };
+		1AE44838C23F853AC2AB964F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		1C35636B01557A5B26736C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		232BD698A94ABB10BC7BCC1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4A67CA2B4B124A316CC626A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4D3B23D90E649F6DD1845B72 /* ResultPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPreview.swift; sourceTree = "<group>"; };
+		7932DA5CC96791B64DC2EAA5 /* FixSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixSnapApp.swift; sourceTree = "<group>"; };
 		80B30184CC7E5AC3E11BC2CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85DE190F2ABE6046539D6E30 /* FixSnap.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FixSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		946FE708C4EF5C90EBE34B28 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -25,6 +37,24 @@
 				F53D7CB448EE8DAC32B9B5B8 /* FixSnap */,
 				CE7DC6B4C16DCBE14D4E79E5 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		89FEBDBF023745AEF74D291F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				946FE708C4EF5C90EBE34B28 /* SampleData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B51DEC515A80D05D12CEBB8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14B8D0B9BE3AB7C533B2E268 /* CaptureFlowView.swift */,
+				232BD698A94ABB10BC7BCC1F /* HomeView.swift */,
+				4D3B23D90E649F6DD1845B72 /* ResultPreview.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CE7DC6B4C16DCBE14D4E79E5 /* Products */ = {
@@ -39,8 +69,12 @@
 			isa = PBXGroup;
 			children = (
 				1C35636B01557A5B26736C70 /* Assets.xcassets */,
+				7932DA5CC96791B64DC2EAA5 /* FixSnapApp.swift */,
 				4A67CA2B4B124A316CC626A0 /* Info.plist */,
+				1AE44838C23F853AC2AB964F /* Theme.swift */,
 				6D00369A4F68CDC1E1F2D491 /* LaunchScreen.storyboard */,
+				89FEBDBF023745AEF74D291F /* Models */,
+				B51DEC515A80D05D12CEBB8E /* Views */,
 			);
 			path = FixSnap;
 			sourceTree = "<group>";
@@ -113,6 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3D62F6CCDDAF279E293DA7 /* CaptureFlowView.swift in Sources */,
+				1E1738D50CD6B06E093BBC40 /* FixSnapApp.swift in Sources */,
+				030FCEF5A555866D1FA32A9A /* HomeView.swift in Sources */,
+				6EEB594A45382FF4F4417320 /* ResultPreview.swift in Sources */,
+				8B069DDE7357B8F4728C0B4A /* SampleData.swift in Sources */,
+				81807C26EEC462BFADC1BF77 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

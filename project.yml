@@ -44,6 +44,9 @@ targets:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleIconName: AppIcon
         ITSAppUsesNonExemptEncryption: false
+        NSCameraUsageDescription: FixSnap uses the camera to photograph the fault you want diagnosed.
+        NSPhotoLibraryUsageDescription: FixSnap needs access to your photos so you can choose an existing picture of the fault.
+        NSLocationWhenInUseUsageDescription: FixSnap uses your location to confirm you're in a supported region and route you to nearby technicians.
         LSRequiresIPhoneOS: true
         UIApplicationSupportsIndirectInputEvents: true
         UILaunchStoryboardName: LaunchScreen
