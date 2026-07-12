@@ -1,0 +1,210 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7782ECD9566CBDFD0A662D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C35636B01557A5B26736C70 /* Assets.xcassets */; };
+		9854997FDE826DC2A7EDF329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D00369A4F68CDC1E1F2D491 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C35636B01557A5B26736C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A67CA2B4B124A316CC626A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		80B30184CC7E5AC3E11BC2CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85DE190F2ABE6046539D6E30 /* FixSnap.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FixSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		5D126EB0BEF7EF02A4701ADA = {
+			isa = PBXGroup;
+			children = (
+				F53D7CB448EE8DAC32B9B5B8 /* FixSnap */,
+				CE7DC6B4C16DCBE14D4E79E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE7DC6B4C16DCBE14D4E79E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85DE190F2ABE6046539D6E30 /* FixSnap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F53D7CB448EE8DAC32B9B5B8 /* FixSnap */ = {
+			isa = PBXGroup;
+			children = (
+				1C35636B01557A5B26736C70 /* Assets.xcassets */,
+				4A67CA2B4B124A316CC626A0 /* Info.plist */,
+				6D00369A4F68CDC1E1F2D491 /* LaunchScreen.storyboard */,
+			);
+			path = FixSnap;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C0E9FBFA3BAB235023488B2 /* FixSnap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4AEA24862630CD70CE33144 /* Build configuration list for PBXNativeTarget "FixSnap" */;
+			buildPhases = (
+				36E5A213C6334D3EA57254BC /* Sources */,
+				6ED59D9BA07789470443A48D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FixSnap;
+			packageProductDependencies = (
+			);
+			productName = FixSnap;
+			productReference = 85DE190F2ABE6046539D6E30 /* FixSnap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		636978C35D786F86E4296A86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 8E1B821A712611C59098F5E1 /* Build configuration list for PBXProject "FixSnap" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5D126EB0BEF7EF02A4701ADA;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = CE7DC6B4C16DCBE14D4E79E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C0E9FBFA3BAB235023488B2 /* FixSnap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6ED59D9BA07789470443A48D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7782ECD9566CBDFD0A662D77 /* Assets.xcassets in Resources */,
+				9854997FDE826DC2A7EDF329 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36E5A213C6334D3EA57254BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6D00369A4F68CDC1E1F2D491 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80B30184CC7E5AC3E11BC2CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		013F8653CA0BCF94FFCC1AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = FixSnap;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0823118F35C4296A4D07CDEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FixSnap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.superapp.fixsnapn7xv3;
+			};
+			name = Debug;
+		};
+		2F71864FCE6057E30A7FBB47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = FixSnap;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B610B352C2DD0EDFB8016588 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FixSnap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.superapp.fixsnapn7xv3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8E1B821A712611C59098F5E1 /* Build configuration list for PBXProject "FixSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F71864FCE6057E30A7FBB47 /* Debug */,
+				013F8653CA0BCF94FFCC1AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D4AEA24862630CD70CE33144 /* Build configuration list for PBXNativeTarget "FixSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0823118F35C4296A4D07CDEF /* Debug */,
+				B610B352C2DD0EDFB8016588 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 636978C35D786F86E4296A86 /* Project object */;
+}
