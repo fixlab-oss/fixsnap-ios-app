@@ -41,8 +41,11 @@ struct RepairAnalysisService {
 //            throw RepairAnalysisError.unsupportedRegion
 //        }
 
+        let imageUrl = try await uploadPhoto(image)
+        
+
         let requestBody = AnalyzeFaultRequest(
-            imageBase64: try encodedPhoto(image),
+            imageUrl: "https://rbkcojkwecbvwczhuimk.supabase.co/storage/v1/object/public/fault-images/\(imageUrl)",
             countryCode: location.countryCode?.lowercased(),
             countryName: location.countryName,
             city: location.city,
@@ -51,16 +54,29 @@ struct RepairAnalysisService {
             description: description?.trimmingCharacters(in: .whitespacesAndNewlines).nilIfEmpty
         )
 
-        var request = URLRequest(url: try configuration.edgeFunctionURL(named: "analyze-fault"))
+        var request = URLRequest(
+            url: try configuration.edgeFunctionURL(named: "analyze-fault")
+        )
         request.httpMethod = "POST"
         request.timeoutInterval = 100
         applyBoltHeaders(to: &request)
-        request.httpBody = try JSONEncoder.fixSnap.encode(requestBody)
+
+        let bodyData = try JSONEncoder.fixSnap.encode(requestBody)
+        request.httpBody = bodyData
+
+        print("[DEBUG] Request JSON: \(String(data: bodyData, encoding: .utf8) ?? "")")
 
         let (data, response) = try await session.data(for: request)
+
+        if let httpResponse = response as? HTTPURLResponse {
+            print("[DEBUG] HTTP Status: \(httpResponse.statusCode)")
+        }
+
+        print("[DEBUG] Response Body: \(String(data: data, encoding: .utf8) ?? "")")
+
         try validate(response: response, data: data, service: "analyze-fault")
-        return try JSONDecoder.fixSnap.decode(FaultReport.self, from: data)
-    }
+
+        return try JSONDecoder.fixSnap.decode(FaultReport.self, from: data)    }
 
     func sendContact(report: FaultReport, location: LocationContext, phone: String, address: String) async throws {
         let requestBody = SendContactRequest(
@@ -81,11 +97,28 @@ struct RepairAnalysisService {
         try validate(response: response, data: data, service: "send-contact")
     }
 
-    private func encodedPhoto(_ image: UIImage) throws -> String {
+    /// Uploads the photo to the private storage bucket and returns its object path.
+    private func uploadPhoto(_ image: UIImage) async throws -> String {
         guard let imageData = Self.compressedJPEG(from: image) else {
             throw RepairAnalysisError.invalidImage
         }
-        return imageData.base64EncodedString()
+        let bucket = configuration.value(for: .boltStorageBucket) ?? "fault-images"
+        let objectName = "\(UUID().uuidString.lowercased()).jpg"
+        let url = try configuration.requiredURL(for: .boltDatabaseURL)
+            .appending(path: "storage/v1/object")
+            .appending(path: bucket)
+            .appending(path: objectName)
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.timeoutInterval = 60
+        applyBoltHeaders(to: &request, includeContentType: false)
+        request.setValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+        request.setValue("false", forHTTPHeaderField: "x-upsert")
+
+        let (data, response) = try await session.upload(for: request, from: imageData)
+        try validate(response: response, data: data, service: "photo upload")
+        return objectName
     }
 
     /// Downscales large camera photos and keeps the JPEG well under the 6 MB upload limit.
@@ -286,7 +319,7 @@ struct APIConfiguration {
 }
 
 private struct AnalyzeFaultRequest: Encodable {
-    let imageBase64: String
+    let imageUrl: String
     let countryCode: String?
     let countryName: String?
     let city: String?

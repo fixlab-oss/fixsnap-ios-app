@@ -50,8 +50,8 @@ targets:
           choose an existing picture of the fault.
         NSLocationWhenInUseUsageDescription: FixSnap uses your location to confirm
           you're in a supported region and route you to nearby technicians.
-        BOLT_DATABASE_URL: https://rbkcojkwecbvwczhuimk.supabase.co
-        BOLT_DATABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJia2Nvamt3ZWNidndjemh1aW1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNzEzNTgsImV4cCI6MjA5ODg0NzM1OH0.fuJOVz89n8BPYlcoEgOctqwJJPkkzyu-mRFUs5akmJc
+        BOLT_DATABASE_URL: https://wlsdinfxbesdrkqxxwbz.supabase.co
+        BOLT_DATABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indsc2RpbmZ4YmVzZHJrcXh4d2J6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4Mjg5NzcsImV4cCI6MjA5OTQwNDk3N30.2SH81JdljDA4lxoGFhWtrMoQJ7LYaLF64qCYYVCPX4s
         BOLT_STORAGE_BUCKET: fault-photos
         LSRequiresIPhoneOS: true
         UIApplicationSupportsIndirectInputEvents: true
