@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BOLT_DATABASE_ANON_KEY</key>
+	<string>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJia2Nvamt3ZWNidndjemh1aW1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMyNzEzNTgsImV4cCI6MjA5ODg0NzM1OH0.fuJOVz89n8BPYlcoEgOctqwJJPkkzyu-mRFUs5akmJc</string>
+	<key>BOLT_DATABASE_URL</key>
+	<string>https://rbkcojkwecbvwczhuimk.supabase.co</string>
+	<key>BOLT_STORAGE_BUCKET</key>
+	<string>fault-photos</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
