@@ -135,7 +135,7 @@ private struct FeaturesGridSection: View {
 private struct TelegramNetworkSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            SectionHeader(title: "The Telegram fixer network")
+            SectionHeader(title: "The fixer network")
             FSCard {
                 HStack(alignment: .top, spacing: 14) {
                     Image(systemName: "paperplane.circle.fill")
@@ -145,14 +145,14 @@ private struct TelegramNetworkSection: View {
                         Text("90+ verified technicians")
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(.white)
-                        Text("Plumbing, electrical and vehicle specialists across Singapore and Sri Lanka get your report the instant it's ready — no waiting on hold.")
+                        Text("Plumbing, electrical and vehicle specialists across the islandget your report the instant it's ready — no waiting on hold.")
                             .font(.system(size: 13))
                             .foregroundStyle(FSColor.textSecondary)
                         HStack(spacing: 8) {
-                            FSBadge(text: "Plumbing · 30", tint: FSColor.teal)
-                            FSBadge(text: "Electrical · 30", tint: FSColor.flame)
+                            FSBadge(text: "Plumbers", tint: FSColor.teal)
+                            FSBadge(text: "Electricians", tint: FSColor.flame)
                         }
-                        FSBadge(text: "Vehicle · 30", tint: .white.opacity(0.7))
+                        FSBadge(text: "Vehicle mechanics", tint: .white.opacity(0.7))
                     }
                 }
             }

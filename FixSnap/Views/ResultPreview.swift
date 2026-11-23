@@ -2,6 +2,11 @@ import SwiftUI
 import MapKit
 import UIKit
 
+private enum ContactField: Hashable {
+    case phone
+    case address
+}
+
 struct ResultPreview: View {
     let report: FaultReport
     let image: UIImage?
@@ -13,6 +18,8 @@ struct ResultPreview: View {
     @State private var contactAddress = ""
     @State private var contactMessage: String?
     @State private var isSubmittingContact = false
+    @State private var showContactSheet = true
+    @FocusState private var focusedField: ContactField?
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 1.3521, longitude: 103.8198),
         span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08)
@@ -45,12 +52,14 @@ struct ResultPreview: View {
                 safetyCard
                 telegramBadge
                 shopsCard
-                contactCard
             }
             .padding(20)
         }
         .task {
             await loadShops()
+        }
+        .sheet(isPresented: $showContactSheet) {
+            contactSheet
         }
     }
 
@@ -101,9 +110,6 @@ struct ResultPreview: View {
                 detailRow(title: "Routed group", value: routedGroup)
             }
 
-            if let messageID = report.telegramMessageID {
-                detailRow(title: "Telegram message", value: "#\(messageID)")
-            }
 
             if let telegramDebug = report.telegramDebug, !telegramDebug.isEmpty {
                 Divider().background(FSColor.stroke)
@@ -338,45 +344,93 @@ struct ResultPreview: View {
         }
     }
 
-    private var contactCard: some View {
-        FSCard {
-            Text("Request contact")
-                .font(.system(size: 15, weight: .semibold))
-                .foregroundStyle(.white)
+    private var contactSheet: some View {
+        NavigationStack {
+            ZStack {
+                FSColor.ink.ignoresSafeArea()
 
-            TextField("Phone number", text: $contactPhone)
-                .keyboardType(.phonePad)
-                .textFieldStyle(.plain)
-                .foregroundStyle(.white)
-                .padding(12)
-                .background(FSColor.inkElevated, in: RoundedRectangle(cornerRadius: 12))
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Send your contact details")
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundStyle(.white)
+                            Text("Share your phone number and address so a fixer can contact you.")
+                                .font(.system(size: 14))
+                                .foregroundStyle(FSColor.textSecondary)
+                        }
 
-            TextField("Address", text: $contactAddress, axis: .vertical)
-                .lineLimit(2...3)
-                .textFieldStyle(.plain)
-                .foregroundStyle(.white)
-                .padding(12)
-                .background(FSColor.inkElevated, in: RoundedRectangle(cornerRadius: 12))
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Phone number")
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundStyle(.white)
+                            TextField("Phone number", text: $contactPhone)
+                                .keyboardType(.numbersAndPunctuation)
+                                .textContentType(.telephoneNumber)
+                                .focused($focusedField, equals: .phone)
+                                .submitLabel(.next)
+                                .onSubmit {
+                                    focusedField = .address
+                                }
+                                .textFieldStyle(.plain)
+                                .foregroundStyle(.white)
+                                .padding(14)
+                                .background(FSColor.inkElevated, in: RoundedRectangle(cornerRadius: 14))
+                                .overlay(RoundedRectangle(cornerRadius: 14).stroke(FSColor.stroke, lineWidth: 1))
+                        }
 
-            Button {
-                Task { await submitContact() }
-            } label: {
-                Text(isSubmittingContact ? "Sending..." : "Send contact details")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(FSColor.teal, in: RoundedRectangle(cornerRadius: 14))
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Address")
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundStyle(.white)
+                            TextField("Address", text: $contactAddress, axis: .vertical)
+                                .lineLimit(3...6)
+                                .textContentType(.fullStreetAddress)
+                                .focused($focusedField, equals: .address)
+                                .textFieldStyle(.plain)
+                                .foregroundStyle(.white)
+                                .padding(14)
+                                .background(FSColor.inkElevated, in: RoundedRectangle(cornerRadius: 14))
+                                .overlay(RoundedRectangle(cornerRadius: 14).stroke(FSColor.stroke, lineWidth: 1))
+                        }
+
+                        Button {
+                            Task { await submitContact() }
+                        } label: {
+                            Text(isSubmittingContact ? "Sending..." : "Send contact details")
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 14)
+                                .background(FSColor.teal, in: RoundedRectangle(cornerRadius: 14))
+                        }
+                        .disabled(isSubmittingContact || !canSubmitContact)
+                        .opacity((isSubmittingContact || !canSubmitContact) ? 0.55 : 1)
+
+                        if let contactMessage {
+                            Text(contactMessage)
+                                .font(.system(size: 13))
+                                .foregroundStyle(contactMessage == "Contact details sent to the fixer group." ? FSColor.teal : FSColor.textSecondary)
+                        }
+                    }
+                    .padding(20)
+                }
             }
-            .disabled(isSubmittingContact || !canSubmitContact)
-            .opacity((isSubmittingContact || !canSubmitContact) ? 0.55 : 1)
-
-            if let contactMessage {
-                Text(contactMessage)
-                    .font(.system(size: 12))
-                    .foregroundStyle(FSColor.textSecondary)
+            .navigationTitle("Contact Fixer")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Later") {
+                        focusedField = nil
+                        showContactSheet = false
+                    }
+                    .tint(.white)
+                }
             }
         }
+        .presentationDetents([.large])
+        .presentationDragIndicator(.visible)
     }
 
     private var canSubmitContact: Bool {
@@ -442,6 +496,8 @@ struct ResultPreview: View {
             contactPhone = normalizedPhone
             contactAddress = trimmedAddress
             contactMessage = "Contact details sent to the fixer group."
+            focusedField = nil
+            showContactSheet = false
         } catch {
             contactMessage = error.localizedDescription
         }

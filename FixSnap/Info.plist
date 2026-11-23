@@ -35,7 +35,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>FixSnap uses the camera to photograph the fault you want diagnosed.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>FixSnap uses your location to confirm you&apos;re in a supported region and route you to nearby technicians.</string>
+	<string>FixSnap uses your location to confirm you're in a supported region and route you to nearby technicians.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>FixSnap needs access to your photos so you can choose an existing picture of the fault.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
