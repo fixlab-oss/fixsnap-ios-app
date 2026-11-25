@@ -32,7 +32,7 @@
 		4D3B23D90E649F6DD1845B72 /* ResultPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPreview.swift; sourceTree = "<group>"; };
 		7932DA5CC96791B64DC2EAA5 /* FixSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixSnapApp.swift; sourceTree = "<group>"; };
 		80B30184CC7E5AC3E11BC2CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		85DE190F2ABE6046539D6E30 /* FixSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FixSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85DE190F2ABE6046539D6E30 /* FixSnapStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FixSnapStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		946FE708C4EF5C90EBE34B28 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 		CE7DC6B4C16DCBE14D4E79E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				85DE190F2ABE6046539D6E30 /* FixSnap.app */,
+				85DE190F2ABE6046539D6E30 /* FixSnapStore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,7 +114,7 @@
 			packageProductDependencies = (
 			);
 			productName = FixSnap;
-			productReference = 85DE190F2ABE6046539D6E30 /* FixSnap.app */;
+			productReference = 85DE190F2ABE6046539D6E30 /* FixSnapStore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -251,6 +251,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = store.loghi.fixsnap;
+				PRODUCT_NAME = FixSnapStore;
 			};
 			name = Debug;
 		};
@@ -312,6 +313,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = store.loghi.fixsnap;
+				PRODUCT_NAME = FixSnapStore;
 			};
 			name = Release;
 		};

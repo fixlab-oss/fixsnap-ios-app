@@ -49,8 +49,6 @@ private struct HeroSection: View {
                 .font(.system(size: 15, weight: .medium))
                 .foregroundStyle(FSColor.textSecondary)
 
-            FSBadge(text: "Available in 🇸🇬 Singapore · 🇱🇰 Sri Lanka")
-
             Button {
                 showCapture = true
             } label: {
@@ -114,7 +112,7 @@ private struct FeaturesGridSection: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            SectionHeader(title: "Features")
+            SectionHeader(title: "What FixSnap offers")
             LazyVGrid(columns: columns, spacing: 14) {
                 ForEach(features, id: \.1) { feature in
                     FSCard {
